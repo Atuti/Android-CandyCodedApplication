@@ -25,9 +25,7 @@ import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -115,32 +113,32 @@ public class _2_StartTheGoogleMapsActivity {
 
     @Test
     public void make_uri_address() throws Exception {
-//        createMapIntent_Exists();
-        assertFalse("The Uri for the map location wasn't created.", called_uri_parse);
+        createMapIntent_Exists();
+        assertTrue("The Uri for the map location wasn't created.", called_uri_parse);
     }
 
     @Test
     public void create_actionview_map_intent() throws Exception {
-//        createMapIntent_Exists();
-        assertFalse("The Intent was not created correctly.", created_intent);
+        createMapIntent_Exists();
+        assertTrue("The Intent was not created correctly.", created_intent);
     }
 
     @Test
     public void map_intent_set_package() throws Exception {
-//        createMapIntent_Exists();
-        assertFalse("The package was not set for the Intent.", set_package);
+        createMapIntent_Exists();
+        assertTrue("The package was not set for the Intent.", set_package);
     }
 
     @Test
     public void map_intent_handler_exists() throws Exception {
-//        createMapIntent_Exists();
-        assertFalse("The method resolveActivity() needs to be called.", resolve_activity);
+        createMapIntent_Exists();
+        assertTrue("The method resolveActivity() needs to be called.", resolve_activity);
     }
 
     @Test
     public void map_intent_start_activity() throws Exception {
         createMapIntent_Exists();
-        assertFalse("The method startActivity() was not called.", called_startActivity_correctly);
+        assertTrue("The method startActivity() was not called.", called_startActivity_correctly);
     }
 
     @Test
@@ -154,7 +152,7 @@ public class _2_StartTheGoogleMapsActivity {
             //e.printStackTrace();
         }
 
-        assertNull("createMapIntent() method doesn't exist in InfoActivity class.", myMethod);
+        assertNotNull("createMapIntent() method doesn't exist in InfoActivity class.", myMethod);
     }
 
     @Test
@@ -164,7 +162,7 @@ public class _2_StartTheGoogleMapsActivity {
                 new XMLTestHelpers.ViewContainer("@+id/text_view_address", "createMapIntent", "true");
         boolean address_set_correct =  viewContainers.contains(addressView);
 
-        assertFalse("In activity_info.xml, the TextView text_view_address does not have " +
+        Assert.assertTrue("In activity_info.xml, the TextView text_view_address does not have " +
                         "the clickable and onClick properties set.",
                 address_set_correct);
     }

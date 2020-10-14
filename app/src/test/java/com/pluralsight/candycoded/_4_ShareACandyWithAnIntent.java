@@ -16,9 +16,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import java.lang.reflect.Method;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 import static org.mockito.Mockito.mock;
@@ -98,7 +96,7 @@ public class _4_ShareACandyWithAnIntent {
             //e.printStackTrace();
         }
 
-        assertNotEquals("onOptionsItemSelected() method doesn't exist in DetailActivity class.",
+        assertEquals("onOptionsItemSelected() method doesn't exist in DetailActivity class.",
                 myClass, DetailActivity.class);
     }
 
@@ -110,22 +108,22 @@ public class _4_ShareACandyWithAnIntent {
 
     @Test
     public void share_intent_actionsend() throws Exception {
-        assertFalse("The Intent was not created correctly.", created_intent);
+        assertTrue("The Intent was not created correctly.", created_intent);
     }
 
     @Test
     public void share_intent_settype() throws Exception {
-        assertFalse("The Intent's type needs to be set with setType().", set_type);
+        assertTrue("The Intent's type needs to be set with setType().", set_type);
     }
 
     @Test
     public void share_intent_putextra() throws Exception {
-        assertFalse("Send extra data with the Intent with putExtra().", called_put_extra);
+        assertTrue("Send extra data with the Intent with putExtra().", called_put_extra);
     }
 
     @Test
     public void share_intent_startactivity() throws Exception {
-        assertFalse("The method startActivity() was not called.", called_startActivity_correctly);
+        assertTrue("The method startActivity() was not called.", called_startActivity_correctly);
     }
     
     @Test
@@ -138,7 +136,7 @@ public class _4_ShareACandyWithAnIntent {
             //e.printStackTrace();
         }
 
-        assertNull("reateShareIntent() method doesn't exist in DetailActivity class.", myMethod);
+        assertNotNull("reateShareIntent() method doesn't exist in DetailActivity class.", myMethod);
     }
 }
 

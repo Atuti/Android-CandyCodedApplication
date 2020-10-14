@@ -23,9 +23,7 @@ import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -97,20 +95,20 @@ public class _3_StartThePhoneActivity {
     @Test
     public void create_actiondial_phone_intent() throws Exception {
         createPhoneIntent_Exists();
-        assertFalse("The Intent was not created correctly.", created_intent);
+        assertTrue("The Intent was not created correctly.", created_intent);
     }
 
     @Test
     public void phone_intent_set_data() throws Exception {
         createPhoneIntent_Exists();
-        assertFalse("The Uri for the phone wasn't created.", called_uri_parse);
-        assertFalse("The data was not set for the Intent.", set_data);
+        assertTrue("The Uri for the phone wasn't created.", called_uri_parse);
+        assertTrue("The data was not set for the Intent.", set_data);
     }
 
     @Test
     public void phone_intent_start_activity() throws Exception {
         createPhoneIntent_Exists();
-        assertFalse("The method startActivity() was not called.", called_startActivity_correctly);
+        assertTrue("The method startActivity() was not called.", called_startActivity_correctly);
     }
 
     @Test
@@ -124,7 +122,7 @@ public class _3_StartThePhoneActivity {
             //e.printStackTrace();
         }
 
-        assertNull("createPhoneIntent() method doesn't exist in InfoActivity class.", myMethod);
+        assertNotNull("createPhoneIntent() method doesn't exist in InfoActivity class.", myMethod);
     }
 
     @Test
@@ -134,7 +132,7 @@ public class _3_StartThePhoneActivity {
                 new XMLTestHelpers.ViewContainer("@+id/text_view_phone", "createPhoneIntent", "true");
         boolean address_set_correct =  viewContainers.contains(addressView);
 
-        assertFalse("In activity_info.xml, the TextView text_view_phone does not have " +
+        Assert.assertTrue("In activity_info.xml, the TextView text_view_phone does not have " +
                         "the clickable and onClick properties set.",
                 address_set_correct);
     }
