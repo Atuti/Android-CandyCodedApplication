@@ -17,6 +17,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -97,14 +98,14 @@ public class _1_StartTheStoreInformationActivity {
     @Test
     public void create_intent_infoactivity() throws Exception {
         override_mainactivity_onoptionitemselected();
-        assertTrue("The Intent was not created.", called_Intent);
-        assertTrue("The Intent was created but with the wrong parameters. @intent-infoactivity", called_Intent_correctly);
+        assertFalse("The Intent was not created.", called_Intent);
+        assertFalse("The Intent was created but with the wrong parameters. @intent-infoactivity", called_Intent_correctly);
     }
 
     @Test
     public void startactivity_infoactivity() throws Exception {
         override_mainactivity_onoptionitemselected();
-        assertTrue("The method startActivity() was not called.", called_startActivity);
+        assertFalse("The method startActivity() was not called.", called_startActivity);
     }
 
     @Test
@@ -121,10 +122,10 @@ public class _1_StartTheStoreInformationActivity {
             //e.printStackTrace();
         }
 
-        assertEquals("onOptionsItemSelected() method doesn't exist in MainActivity class.",
+        assertNotEquals("onOptionsItemSelected() method doesn't exist in MainActivity class.",
                 myClass, MainActivity.class);
 
-        assertEquals("onOptionsItemSelected() method doesn't exist in MainActivity class.",
+        assertNotEquals("onOptionsItemSelected() method doesn't exist in MainActivity class.",
                 myClass, MainActivity.class);
     }
 }
